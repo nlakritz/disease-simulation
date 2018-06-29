@@ -272,6 +272,8 @@ def sim(grid_size, density, disease, birth, spread, duration, mortality, days, g
                         x = j[0]
                         y = j[1]
                         value = (transformed_grid[j])
+                        if value == ".":
+	                        value = -1
                         if value >= 1:
                             value = ((transformed_grid[j]) * 100) / (duration)
                         z.update_cell(x, y, value)
@@ -304,4 +306,4 @@ def sim(grid_size, density, disease, birth, spread, duration, mortality, days, g
             print_grid(transformed_grid, grid_size)
             print("\n")
 
-sim(25, 0.5, 0.5, 0.5, 0.5, 10, 0.5, 100, True)  # Hard-code parameters
+sim(25, 0.5, 0.5, 0.5, 0.5, 10, 0.5, 100, True)  # Hard-code parameters. True activates graphics.
